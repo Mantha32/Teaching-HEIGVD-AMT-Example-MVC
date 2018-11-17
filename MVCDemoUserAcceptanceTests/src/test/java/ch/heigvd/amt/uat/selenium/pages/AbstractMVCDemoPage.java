@@ -22,11 +22,12 @@ public abstract class AbstractMVCDemoPage extends Page {
    * referenced in the test). Note that there are other types of locators. See:
    * http://www.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-api-commands-and-operations
    */
-  By menuExamplesLocator = By.id("menuExamples");
-  By menuItemGenerateTestDataLocator = By.id("menuItemGenerateTestData");
-  By menuItemShowCorporateInformationLocator = By.id("menuItemShowCorporateInformation");
-  By menuItemBeersLocator = By.id("menuItemBeers");
-  By menuItemAJAXPageLocator = By.id("menuItemAJAXPage");
+  By aboutLocator = By.id("asideItemAbout");
+  By asideProfileUser = By.id("asideItemProfile");
+  By asideMenuShowProjectLocator = By.id("asideMenuShowProject");
+  By asideItemShowProjectList = By.id("asideItemShowProjectList");
+  By asideMenuShowUserLocator = By.id("asideMenuShowUser");
+  By asideItemShowUserList = By.id("asideItemShowUserList");
 
   public AbstractMVCDemoPage(WebDriver driver) {
     super(driver);
@@ -45,30 +46,28 @@ public abstract class AbstractMVCDemoPage extends Page {
    * Secondly, notice that we return a page object. It is a new instance of the
    * page where we should land after this action is performed. 
    *
-   * @return the Beer page
+   * @return the About page
    */
-  public ProfilePage goToBeersPageViaMenu() {
-    driver.findElement(menuExamplesLocator).click();
-    driver.findElement(menuItemBeersLocator).click();
+  public ProfilePage goToAboutPage() {
+    driver.findElement(aboutLocator).click();
     return new ProfilePage(driver);
   }
 
-  public AJAXPage goToAJAXPageViaMenu() {
-    driver.findElement(menuExamplesLocator).click();
-    driver.findElement(menuItemAJAXPageLocator).click();
-    return new AJAXPage(driver);
+  public ListUserPage goToProfilePage() {
+    driver.findElement(asideProfileUser).click();
+    return new ListUserPage(driver);
   }
 
-  public GenerateTestDataPage goToGenerateTestDataPageViaMenu() {
-    driver.findElement(menuExamplesLocator).click();
-    driver.findElement(menuItemGenerateTestDataLocator).click();
-    return new GenerateTestDataPage(driver);
+  public ListAllProjectPage goToProjectListPageViaMenu() {
+    driver.findElement(asideMenuShowProjectLocator).click();
+    driver.findElement(asideItemShowProjectList).click();
+    return new ListAllProjectPage(driver);
   }
 
-  public CorporateInformationPage goToCorporateInformationPageViaMenu() {
-    driver.findElement(menuExamplesLocator).click();
-    driver.findElement(menuItemShowCorporateInformationLocator).click();
-    return new CorporateInformationPage(driver);
+  public ListUserPage goToUserListPageViaMenu() {
+    driver.findElement(asideMenuShowUserLocator).click();
+    driver.findElement(asideItemShowUserList).click();
+    return new ListUserPage(driver);
   }
 
 }
