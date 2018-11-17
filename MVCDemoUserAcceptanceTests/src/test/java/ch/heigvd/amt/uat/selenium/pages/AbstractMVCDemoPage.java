@@ -47,10 +47,10 @@ public abstract class AbstractMVCDemoPage extends Page {
    *
    * @return the Beer page
    */
-  public BeersPage goToBeersPageViaMenu() {
+  public ProfilePage goToBeersPageViaMenu() {
     driver.findElement(menuExamplesLocator).click();
     driver.findElement(menuItemBeersLocator).click();
-    return new BeersPage(driver);
+    return new ProfilePage(driver);
   }
 
   public AJAXPage goToAJAXPageViaMenu() {

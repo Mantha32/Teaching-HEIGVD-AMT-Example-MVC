@@ -14,7 +14,7 @@ public class HomePage extends AbstractMVCDemoPage {
     super(driver);
 
     // Check that we're on the right page.
-    if (!"Welcome".equals(driver.getTitle())) {
+    if (!"Home".equals(driver.getTitle())) {
       throw new IllegalStateException("This is not the correct page");
     }
   }

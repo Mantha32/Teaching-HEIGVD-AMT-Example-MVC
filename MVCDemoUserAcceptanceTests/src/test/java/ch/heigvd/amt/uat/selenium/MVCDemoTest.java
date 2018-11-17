@@ -20,10 +20,13 @@ public class MVCDemoTest {
   private String baseUrl = "http://localhost:8080/MVCDemo-1.0-SNAPSHOT";
   private WebDriver driver;
 
+
   @Before
   public void openBrowser() {
     //driver = new FirefoxDriver();
-    System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
+    //Set with you path/to/your_chromedriver
+    //iando: /usr/bin/chromedriver
+    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     driver = new ChromeDriver();
   }
 
@@ -39,23 +42,26 @@ public class MVCDemoTest {
   
   @Test
   @ProbeTest(tags = "WebUI")
+  //Sign in with user admin
   public void successfulSigninShouldBringUserToHomePage() {
     driver.get(baseUrl);
     LoginPage loginPage = new LoginPage(driver);
-    loginPage.typeEmailAddress("a@a.com");
-    loginPage.typePassword("any password");
+    loginPage.typeEmailAddress("nuno.cercaabrantessilva@heig-vd.ch");
+    loginPage.typePassword("miguel");
     HomePage homePage = (HomePage)loginPage.submitForm(HomePage.class);
   }
 
   @Test
   @ProbeTest(tags = "WebUI")
   public void aUserTryingToGetToAboutPageShouldBeRedirectedThereAfterSignin() {
-    driver.get(baseUrl + "/pages/about");
+    driver.get(baseUrl + "/about");
     LoginPage loginPage = new LoginPage(driver);
-    loginPage.typeEmailAddress("a@a.com");
-    loginPage.typePassword("any password");
+    loginPage.typeEmailAddress("nuno.cercaabrantessilva@heig-vd.ch");
+    loginPage.typePassword("miguel");
     AboutPage aboutPage = (AboutPage)loginPage.submitForm(AboutPage.class);
   }
+  
+  /*
 
   @Test
   @ProbeTest(tags = "WebUI")
@@ -88,4 +94,5 @@ public class MVCDemoTest {
   public void closeBrowser() {
     driver.close();
   }
+*/
 }

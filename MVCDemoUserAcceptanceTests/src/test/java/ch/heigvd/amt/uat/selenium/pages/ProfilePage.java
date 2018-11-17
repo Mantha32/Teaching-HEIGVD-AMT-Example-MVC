@@ -12,13 +12,13 @@ import org.openqa.selenium.WebDriver;
  * 
  * @author Olivier Liechti
  */
-public class BeersPage extends AbstractMVCDemoPage {
+public class ProfilePage extends AbstractMVCDemoPage {
 
-  public BeersPage(WebDriver driver) {
+  public ProfilePage(WebDriver driver) {
     super(driver);
 
     // Check that we're on the right page.
-    if (!"Beers List".equals(driver.getTitle())) {
+    if (!"Profile".equals(driver.getTitle())) {
       throw new IllegalStateException("This is not the correct page");
     }
   }

@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class LoginPage extends AbstractMVCDemoPage {
 
+   //link with dom HTML : reference id in dom
   By tfEmailLocator = By.id("inputEmail");
   By tfPasswordLocator = By.id("inputPassword");
   By bSigninLocator = By.id("bSignIn");
@@ -21,7 +22,7 @@ public class LoginPage extends AbstractMVCDemoPage {
     super(driver);
 
     // Check that we're on the right page.
-    if (!"Login Page".equals(driver.getTitle())) {
+    if (!"Login".equals(driver.getTitle())) {
       throw new IllegalStateException("This is not the correct page");
     }
   }

@@ -15,7 +15,7 @@ static content.
 
 <p>This is just a demo application. Don't expect much.</p>
 
-<div class="alert alert-info" role="alert">
+<div class="alert alert-info" role="alert" >
   By the way, this page only contains static content (no model provided by the 
   servlet and used by the view).
 </div>
