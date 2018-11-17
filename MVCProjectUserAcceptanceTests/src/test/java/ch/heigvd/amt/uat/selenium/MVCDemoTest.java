@@ -25,7 +25,7 @@ public class MVCDemoTest {
   public void openBrowser() {
     //driver = new FirefoxDriver();
     //Set with you path/to/your_chromedriver
-    //iando: /usr/bin/chromedriver
+    //@Dilifera aka Iando: /usr/bin/chromedriver
     System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     driver = new ChromeDriver();
   }
@@ -61,23 +61,21 @@ public class MVCDemoTest {
     AboutPage aboutPage = (AboutPage)loginPage.submitForm(AboutPage.class);
   }
   
-  /*
 
   @Test
   @ProbeTest(tags = "WebUI")
   public void aUserShouldBeAbleToVisitAllPagesAfterSignin() {
     driver.get(baseUrl);
     LoginPage loginPage = new LoginPage(driver);
-    loginPage.typeEmailAddress("a@a.com");
-    loginPage.typePassword("any password");
+    loginPage.typeEmailAddress("nuno.cercaabrantessilva@heig-vd.ch");
+    loginPage.typePassword("miguel");
     HomePage homePage = (HomePage)loginPage.submitForm(HomePage.class);
-    homePage.goToBeersPageViaMenu()
-      .goToBeersPageViaMenu()
-      .goToAJAXPageViaMenu()
-      .goToGenerateTestDataPageViaMenu()
-      .goToCorporateInformationPageViaMenu();
+    homePage.goToAboutPage()
+      .goToProfilePage()
+      .goToProjectListPageViaMenu();
   }
-
+  
+/*
   @Test
   @ProbeTest(tags = "WebUI")
   public void aUserShouldBeAbleToGetDetailsInformationAboutACompany() {
@@ -89,10 +87,11 @@ public class MVCDemoTest {
     homePage.goToCorporateInformationPageViaMenu()
       .clickOnFirstCompanyLinkInCompaniesTable();
   }
+
+*/
   
   @After
   public void closeBrowser() {
     driver.close();
   }
-*/
 }
